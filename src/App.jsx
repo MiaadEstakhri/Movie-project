@@ -10,11 +10,11 @@ function App() {
     <main className="w-100 h-screen flex justify-center">
       <div className="container mx-3">
         <Navbar />
-        <section className="grid grid-flow-col  grid-cols-7">
-          <section className=" col-span-3 lg:col-span-2">
+        <section className="grid grid-flow-row sm:grid-flow-col  sm:grid-cols-8">
+          <div className=" col-span-3 sm:col-span-4 ">
             <CharacterList />
-          </section>
-          <section className=" bg-blue-700 col-span-4 lg:col-span-5">3</section>
+          </div>
+          <div className=" bg-blue-700 sm:col-span-4 ">3</div>
         </section>
       </div>
     </main>
