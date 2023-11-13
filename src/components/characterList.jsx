@@ -1,3 +1,4 @@
+import EyeIcon from "../assets/icons/eyeIcon";
 import { allCharacters } from "../data/data";
 
 const CharacterList = () => {
@@ -6,12 +7,14 @@ const CharacterList = () => {
       {allCharacters.map((item) => {
         return (
           <div className="grid grid-flow-col grid-cols-5  bg-slate-800 my-6 me-2 p-2 sm:p-3 lg:p-4 rounded-2xl">
-            <img
-              src={item.image}
-              alt={item.name}
-              className="col-span-1 sm:col-span-2 w-full lg:w-[90%] sm:h-24 lg:h-32 xl:h-36  rounded-xl sm:rounded-2xl "
-            />
-            <div className="col-span-3 flex flex-col justify-between lg:justify-around  ps-3 lg:ps-0 text-white">
+            <div className="col-span-1 sm:col-span-2">
+              <img
+                src={item.image}
+                alt={item.name}
+                className=" w-full lg:w-[90%] sm:h-24 lg:h-32 xl:h-36  rounded-xl sm:rounded-2xl "
+              />
+            </div>
+            <div className="col-span-3 flex flex-col justify-around  ps-3 lg:ps-0 text-white">
               <h3 className=" whitespace-nowrap  font-bold ">
                 <span className="text-lg">
                   {item.gender === "Male" ? "👱🏻‍♂️" : "👩🏻‍🦰"}
@@ -27,6 +30,9 @@ const CharacterList = () => {
                 <span className=""> - {item.species}</span>
               </div>
             </div>
+            <span className="col-span-1 self-center">
+              <EyeIcon className="h-7 w-7 sm:h-8 sm:w-8" color="#b91c1c" />
+            </span>
           </div>
         );
       })}
