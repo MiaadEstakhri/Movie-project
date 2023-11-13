@@ -5,17 +5,28 @@ const CharacterList = () => {
     <div className="">
       {allCharacters.map((item) => {
         return (
-          <div className="grid grid-flow-col grid-cols-7 bg-slate-800 my-6 me-2 p-1.5  sm:p-2 md:p-3 rounded-2xl ">
+          <div className="grid grid-flow-col grid-cols-5  bg-slate-800 my-6 me-2 p-2 sm:p-3 lg:p-4 rounded-2xl">
             <img
               src={item.image}
               alt={item.name}
-              className="col-span-2 sm:col-span-2 w-16  md:w-20 lg:w-24 2xl:w-28 h-12 sm:h-14 md:h-20 rounded-xl sm:rounded-2xl object-fill"
+              className="col-span-1 sm:col-span-2 w-full lg:w-[90%] sm:h-24 lg:h-32 xl:h-36  rounded-xl sm:rounded-2xl "
             />
-            <h3 className="">
-              <span className=""></span>
-              {item.gender === "Male" ? "👱🏻‍♂️" : "👩🏻‍🦰"}
-              <span className=""></span>
-            </h3>
+            <div className="col-span-3 flex flex-col justify-between lg:justify-around  ps-3 lg:ps-0 text-white">
+              <h3 className=" whitespace-nowrap  font-bold ">
+                <span className="text-lg">
+                  {item.gender === "Male" ? "👱🏻‍♂️" : "👩🏻‍🦰"}
+                </span>
+                <span className="text-base lg:text-xl ps-1">{item.name}</span>
+              </h3>
+              <div className="text-xs lg:text-sm ">
+                <span
+                  className={`inline-block w-3 h-3  rounded-full ${
+                    item.status === "Dead" ? "bg-red-500" : "bg-green-500"
+                  }`}></span>
+                <span className=""> {item.status} </span>
+                <span className=""> - {item.species}</span>
+              </div>
+            </div>
           </div>
         );
       })}
