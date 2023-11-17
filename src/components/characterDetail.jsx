@@ -2,7 +2,7 @@ import { character } from "../data/data";
 
 const CharacterDetail = () => {
   return (
-    <div className=" grid grid-flow-col grid-cols-5  bg-slate-800 my-2 sm:my-4 sm:ms-4  rounded-2xl ">
+    <div className=" grid grid-flow-col grid-cols-5  bg-slate-800   rounded-2xl ">
       <div className="col-span-2  ">
         <img
           src={character.image}
