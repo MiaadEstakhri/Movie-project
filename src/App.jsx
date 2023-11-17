@@ -2,6 +2,7 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import CharacterList from "./components/characterList";
 import CharacterDetail from "./components/characterDetail";
+import CharacterEpisodes from "./components/characterEpisodes";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
           <div className=" sm:col-span-4  2xl:col-span-3 ">
             <CharacterList />
           </div>
-          <div className=" sm:col-span-4 2xl:col-span-5">
+          <div className=" sm:col-span-4 2xl:col-span-5 mx-[.125rem] sm:mx-0 my-2 sm:my-4 sm:ms-4 ">
             <CharacterDetail />
+            <CharacterEpisodes />
           </div>
         </section>
       </div>
