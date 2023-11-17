@@ -30,7 +30,7 @@ const CharacterList = () => {
                 <span className=""> - {item.species}</span>
               </div>
             </div>
-            <span className="col-span-1 self-center">
+            <span className="col-span-1 self-center cursor-pointer">
               <EyeIcon className="h-7 w-7 sm:h-8 sm:w-8" color="#b91c1c" />
             </span>
           </div>
