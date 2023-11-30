@@ -1,6 +1,6 @@
 import { character } from "../data/data";
 
-const CharacterDetail = () => {
+function CharacterDetail() {
   return (
     <div className=" grid grid-flow-col grid-cols-5  bg-slate-800   rounded-2xl ">
       <div className="col-span-2  ">
@@ -34,13 +34,13 @@ const CharacterDetail = () => {
           <p className="whitespace-nowrap mt-1 font-semibold">
             {character.location.name}
           </p>
-          <button className="bg-slate-500/95 py-2 px-3 md:py-3 sm:px-4 rounded-xl mt-3 font-extrabold ">
+          <button className="bg-slate-500/95 py-2 px-3 md:py-3 sm:px-4 rounded-xl mt-3 mb-2 font-extrabold ">
             Add to Favorite
           </button>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default CharacterDetail;

@@ -1,7 +1,7 @@
 import EyeIcon from "../assets/icons/eyeIcon";
 import { allCharacters } from "../data/data";
 
-const CharacterList = () => {
+function CharacterList({}) {
   return (
     <div className="">
       {allCharacters.map((item) => {
@@ -38,6 +38,6 @@ const CharacterList = () => {
       })}
     </div>
   );
-};
+}
 
 export default CharacterList;

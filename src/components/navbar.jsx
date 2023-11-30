@@ -1,6 +1,6 @@
 import HeartIcon from "../assets/icons/heartIcon";
 
-const Navbar = () => {
+function Navbar() {
   return (
     <nav className="flex justify-between items-center bg-slate-700 text-white rounded-xl py-3 px-4 mt-8 ">
       <div className="font-bold text-xs sm:text-sm">LOGO</div>
@@ -21,6 +21,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;

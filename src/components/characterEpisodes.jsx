@@ -1,7 +1,7 @@
 import ArrowUpCircleIcon from "../assets/icons/arrowUpCircleIcon";
 import { episodes } from "../data/data";
 
-const CharacterEpisodes = () => {
+function CharacterEpisodes() {
   return (
     <div className="w-100  bg-slate-800 rounded-2xl mt-5 p-2 ">
       <div className="w-100 flex justify-between whitespace-nowrap mb-1">
@@ -34,6 +34,6 @@ const CharacterEpisodes = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default CharacterEpisodes;
