@@ -1,10 +1,9 @@
 import EyeIcon from "../assets/icons/eyeIcon";
-import { allCharacters } from "../data/data";
 
-function CharacterList({}) {
+function CharacterList({ characters }) {
   return (
     <div className="">
-      {allCharacters.map((item) => {
+      {characters.map((item) => {
         return (
           <div className="grid grid-flow-col grid-cols-5  bg-slate-800 my-4  p-2 sm:p-3 lg:p-4 rounded-2xl">
             <div className="col-span-1 sm:col-span-2">
