@@ -5,7 +5,9 @@ function CharacterList({ characters }) {
     <div className="">
       {characters.map((item) => {
         return (
-          <div className="grid grid-flow-col grid-cols-5  bg-slate-800 my-4  p-2 sm:p-3 lg:p-4 rounded-2xl">
+          <div
+            className="grid grid-flow-col grid-cols-5  bg-slate-800 my-4  p-2 sm:p-3 lg:p-4 rounded-2xl"
+            key={item.id}>
             <div className="col-span-1 sm:col-span-2">
               <img
                 src={item.image}
