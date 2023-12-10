@@ -2,7 +2,7 @@ import EyeIcon from "../assets/icons/eyeIcon";
 
 function CharacterList({ characters }) {
   return (
-    <div className="">
+    <div className="max-h-[600px] overflow-y-auto characters ">
       {characters.map((item) => {
         return (
           <div
