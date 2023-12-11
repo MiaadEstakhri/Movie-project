@@ -6,23 +6,33 @@ import CharacterEpisodes from "./components/characterEpisodes";
 import { allCharacters } from "./data/data";
 import "./App.css";
 import Loading from "./components/loading";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
-    setIsLoading(true);
     async function fetchApi() {
-      const res = await fetch("https://rickandmortyapi.com/api/character");
-      const data = await res.json();
-      setCharacters(data.results);
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const { data } = await axios.get(
+          "https://rickandmortyapi.com/api/characterr"
+        );
+        setCharacters(data.results);
+      } catch (error) {
+        toast.error(error.response.data.error);
+      } finally {
+        setIsLoading(false);
+      }
     }
     fetchApi();
   }, []);
 
   return (
     <main className="w-100  flex justify-center overflow-hidden">
+      <Toaster />
       <div className="container mx-3">
         <Navbar numOfResult={characters.length} />
         <section className="grid grid-flow-row sm:grid-flow-col  sm:grid-cols-8 mt-6">
