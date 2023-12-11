@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 import Navbar from "./components/navbar";
 import CharacterList from "./components/characterList";
 import CharacterDetail from "./components/characterDetail";
 import CharacterEpisodes from "./components/characterEpisodes";
-import { allCharacters } from "./data/data";
-import "./App.css";
 import Loading from "./components/loading";
-import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import "./App.css";
 
 function App() {
   const [characters, setCharacters] = useState([]);
