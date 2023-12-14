@@ -1,9 +1,12 @@
 import HeartIcon from "../assets/icons/heartIcon";
+import logo from "../assets/images/logo_prev_ui.png";
 
 function Navbar({ numOfResult, query, setQuery }) {
   return (
     <nav className="flex justify-between items-center bg-slate-700 text-white rounded-xl py-3 px-4 mt-8 ">
-      <div className="font-bold text-xs sm:text-sm">LOGO</div>
+      <div className="font-bold text-xs sm:text-sm">
+        <img src={logo} alt="Logo" className="w-32" />
+      </div>
       <form
         className="w-28  sm:w-44 xl:w-56 bg-slate-500 py-1.5 px-3 rounded-lg "
         onSubmit={(event) => event.preventDefault()}>
