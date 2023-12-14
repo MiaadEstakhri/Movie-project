@@ -2,7 +2,7 @@ import EyeIcon from "../assets/icons/eyeIcon";
 
 function CharacterList({ characters }) {
   return (
-    <div className="max-h-[600px] overflow-y-auto characters ">
+    <div className="max-h-[350px]  sm:max-h-[600px] overflow-y-auto characters ">
       {characters.map((item) => {
         return (
           <div
@@ -15,12 +15,14 @@ function CharacterList({ characters }) {
                 className=" w-full lg:w-[90%] sm:h-24 lg:h-32 xl:h-36  rounded-xl sm:rounded-2xl "
               />
             </div>
-            <div className="col-span-3 flex flex-col justify-around  ps-3 lg:ps-0 text-white/90">
+            <div className="col-span-3 flex flex-col justify-around items-start  ps-3 lg:ps-0 text-white/90">
               <h3 className=" whitespace-nowrap  font-bold ">
                 <span className="text-lg">
                   {item.gender === "Male" ? "👱🏻‍♂️" : "👩🏻‍🦰"}
                 </span>
-                <span className="text-base lg:text-xl ps-1">{item.name}</span>
+                <span className="text-xs whitespace-pre-wrap lg:text-xl ps-1">
+                  {item.name}
+                </span>
               </h3>
               <div className="text-xs lg:text-sm ">
                 <span

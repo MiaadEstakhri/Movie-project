@@ -17,7 +17,7 @@ function App() {
       try {
         setIsLoading(true);
         const { data } = await axios.get(
-          "https://rickandmortyapi.com/api/characterr"
+          "https://rickandmortyapi.com/api/character"
         );
         setCharacters(data.results);
       } catch (error) {
@@ -30,19 +30,19 @@ function App() {
   }, []);
 
   return (
-    <main className="w-100  flex justify-center overflow-hidden">
+    <main className="w-100 h-screen  flex justify-center ">
       <Toaster />
-      <div className="container mx-3">
+      <div className="h-100 container mx-4 xl:mx-0">
         <Navbar numOfResult={characters.length} />
         <section className="grid grid-flow-row sm:grid-flow-col  sm:grid-cols-8 mt-6">
-          <div className=" sm:col-span-4  2xl:col-span-3 mb-5 sm:mb-0 mt-4 text-center">
+          <div className=" sm:col-span-4  2xl:col-span-3 mb-5 sm:mb-0  sm:mt-4 text-center">
             {isLoading ? (
               <Loading />
             ) : (
               <CharacterList characters={characters} />
             )}
           </div>
-          <div className=" sm:col-span-4 2xl:col-span-5 mx-[.125rem] sm:mx-0  sm:my-4 sm:ms-4 ">
+          <div className=" sm:col-span-4 2xl:col-span-5 mx-[.125rem] sm:mx-0  sm:my-4 sm:ms-4 mb-5 ">
             <CharacterDetail />
             <CharacterEpisodes />
           </div>
