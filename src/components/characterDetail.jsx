@@ -34,7 +34,7 @@ function CharacterDetail() {
           <p className="whitespace-nowrap mt-1 font-semibold">
             {character.location.name}
           </p>
-          <button className="bg-slate-500/95 py-2 px-3 md:py-3 sm:px-4 rounded-xl mt-3 mb-2 font-extrabold hover:bg-slate-600/80 ">
+          <button className="bg-slate-500/95 py-2 px-3 md:py-3 sm:px-4 rounded-2xl mt-3 mb-2 font-extrabold hover:bg-slate-600/80 ">
             Add to Favorite
           </button>
         </div>
