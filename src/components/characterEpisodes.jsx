@@ -3,7 +3,7 @@ import { episodes } from "../data/data";
 
 function CharacterEpisodes() {
   return (
-    <div className="w-100  bg-slate-800 rounded-2xl mt-5 p-2 ">
+    <div className="w-100  bg-slate-800 rounded-xl mt-5 p-3 ">
       <div className="w-100 flex justify-between whitespace-nowrap mb-1">
         <h2 className="text-slate-500 font-semibold sm:text-lg tracking-widest">
           List of Episodes:

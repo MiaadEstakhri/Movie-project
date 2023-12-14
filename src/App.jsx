@@ -41,7 +41,7 @@ function App() {
           setQuery={setQuery}
         />
         <section className="grid grid-flow-row sm:grid-flow-col  sm:grid-cols-8 mt-6">
-          <div className=" sm:col-span-4  2xl:col-span-3 mb-5 sm:mb-0  sm:mt-4 text-center">
+          <div className=" sm:col-span-4  2xl:col-span-3 mb-5 sm:mb-0  sm:mt-3 text-center">
             {isLoading ? (
               <Loading />
             ) : (
