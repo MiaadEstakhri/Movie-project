@@ -20,13 +20,13 @@ function CharacterList({ characters }) {
                 <span className="text-lg">
                   {item.gender === "Male" ? "👱🏻‍♂️" : "👩🏻‍🦰"}
                 </span>
-                <span className="text-xs whitespace-pre-wrap lg:text-xl ps-1">
+                <span className="text-xs whitespace-pre-wrap lg:text-xl ms-2">
                   {item.name}
                 </span>
               </h3>
               <div className="text-xs lg:text-sm ">
                 <span
-                  className={`inline-block w-3 h-3  rounded-full font-light ${
+                  className={`inline-block w-3 h-3  rounded-full font-light mx-1 ${
                     item.status === "Dead" ? "bg-red-500" : "bg-green-500"
                   }`}></span>
                 <span className=""> {item.status} </span>
