@@ -1,14 +1,18 @@
 import HeartIcon from "../assets/icons/heartIcon";
 
-function Navbar({ numOfResult }) {
+function Navbar({ numOfResult, query, setQuery }) {
   return (
     <nav className="flex justify-between items-center bg-slate-700 text-white rounded-xl py-3 px-4 mt-8 ">
       <div className="font-bold text-xs sm:text-sm">LOGO</div>
-      <form className="w-28  sm:w-44 xl:w-56 bg-slate-500 py-1.5 px-3 rounded-lg ">
+      <form
+        className="w-28  sm:w-44 xl:w-56 bg-slate-500 py-1.5 px-3 rounded-lg "
+        onSubmit={(event) => event.preventDefault()}>
         <input
           type="text"
           placeholder="search ..."
           className="bg-transparent outline-none w-full"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
         />
       </form>
       <div className="text-gray-400 text-xs sm:text-sm">
