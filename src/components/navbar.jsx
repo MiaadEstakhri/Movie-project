@@ -5,7 +5,7 @@ function Navbar({ numOfResult, query, setQuery }) {
   return (
     <nav className="flex justify-between items-center bg-slate-700 text-white rounded-xl py-3 px-4 mt-8 ">
       <div className="font-bold text-xs sm:text-sm">
-        <img src={logo} alt="Logo" className="w-32" />
+        <img src={logo} alt="Logo" className="w-24 sm:w-28" />
       </div>
       <form
         className="w-28  sm:w-44 xl:w-56 bg-slate-500 py-1.5 px-3 rounded-lg "
@@ -18,7 +18,7 @@ function Navbar({ numOfResult, query, setQuery }) {
           onChange={(event) => setQuery(event.target.value)}
         />
       </form>
-      <div className="text-gray-400 text-xs sm:text-sm">
+      <div className="text-gray-400 text-xs sm:text-sm ms-4 sm:ms-0">
         Found {numOfResult} Results
       </div>
       <div className="relative">
