@@ -57,7 +57,6 @@ function App() {
           </div>
           <div className=" sm:col-span-4 2xl:col-span-5 mx-[.125rem] sm:mx-0  sm:my-4 sm:ms-4 mb-5 ">
             <CharacterDetail selectedId={selectedId} />
-            <CharacterEpisodes />
           </div>
         </section>
       </div>
