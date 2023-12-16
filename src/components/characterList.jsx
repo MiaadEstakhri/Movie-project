@@ -1,4 +1,5 @@
 import EyeIcon from "../assets/icons/eyeIcon";
+import EyeSlashIcon from "../assets/icons/eyeSlashIcon";
 
 function CharacterList({ characters, onSelectedId, selectedId }) {
   return (
@@ -37,7 +38,10 @@ function CharacterList({ characters, onSelectedId, selectedId }) {
               className="col-span-1 self-center justify-self-end cursor-pointer"
               onClick={() => onSelectedId(item.id)}>
               {selectedId === item.id ? (
-                "SS"
+                <EyeSlashIcon
+                  className="h-7 w-7 sm:h-8 sm:w-8"
+                  color="#b91c1c"
+                />
               ) : (
                 <EyeIcon className="h-7 w-7 sm:h-8 sm:w-8" color="#b91c1c" />
               )}
