@@ -20,6 +20,14 @@ function CharacterDetail({ selectedId }) {
     fetchCharacterApi();
   }, [selectedId]);
 
+  if (!character || !selectedId) {
+    return (
+      <div className="w-100 flex justify-center items-center font-bold text-white/90 mt-20 text-xl xl:text-2xl">
+        Please select a character
+      </div>
+    );
+  }
+
   return (
     <>
       <div className=" grid grid-flow-col grid-cols-5  bg-slate-800   rounded-xl ">
