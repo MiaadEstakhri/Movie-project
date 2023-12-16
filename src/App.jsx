@@ -52,6 +52,7 @@ function App() {
               <CharacterList
                 characters={characters}
                 onSelectedId={handelSelectId}
+                selectedId={selectedId}
               />
             )}
           </div>
