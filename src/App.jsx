@@ -12,6 +12,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState("");
+  const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
     async function fetchApi() {
@@ -31,6 +32,9 @@ function App() {
     fetchApi();
   }, [query]);
 
+  const handelSelectId = (id) => {
+    setSelectedId(id);
+  };
   return (
     <main className="w-100 h-screen  flex justify-center ">
       <Toaster />
@@ -45,11 +49,14 @@ function App() {
             {isLoading ? (
               <Loading />
             ) : (
-              <CharacterList characters={characters} />
+              <CharacterList
+                characters={characters}
+                onSelectedId={handelSelectId}
+              />
             )}
           </div>
           <div className=" sm:col-span-4 2xl:col-span-5 mx-[.125rem] sm:mx-0  sm:my-4 sm:ms-4 mb-5 ">
-            <CharacterDetail />
+            <CharacterDetail selectedId={selectedId} />
             <CharacterEpisodes />
           </div>
         </section>
