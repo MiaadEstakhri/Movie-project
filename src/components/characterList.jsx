@@ -1,6 +1,6 @@
 import EyeIcon from "../assets/icons/eyeIcon";
 
-function CharacterList({ characters }) {
+function CharacterList({ characters, onSelectedId }) {
   return (
     <div className="max-h-[350px]  sm:max-h-[600px] overflow-y-auto characters ">
       {characters.map((item) => {
@@ -33,9 +33,11 @@ function CharacterList({ characters }) {
                 <span className=""> - {item.species}</span>
               </div>
             </div>
-            <span className="col-span-1 self-center justify-self-end cursor-pointer">
+            <button
+              className="col-span-1 self-center justify-self-end cursor-pointer"
+              onClick={() => onSelectedId(item.id)}>
               <EyeIcon className="h-7 w-7 sm:h-8 sm:w-8" color="#b91c1c" />
-            </span>
+            </button>
           </div>
         );
       })}
