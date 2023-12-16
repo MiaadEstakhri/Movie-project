@@ -1,32 +1,43 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 import CharacterEpisodes from "./characterEpisodes";
+import Loading from "./loading";
 
 function CharacterDetail({ selectedId }) {
   const [character, setCharacter] = useState(null);
+  const [loading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchCharacterApi() {
       try {
+        setIsLoading(true);
         const { data } = await axios.get(
-          `https://rickandmortyapi.com/api/character/${selectedId || 1}`
+          `https://rickandmortyapi.com/api/character/${selectedId}`
         );
         setCharacter(data);
       } catch (error) {
-        // toast.error(error.response.data.error);
+        toast.error(error.response.data.error);
       } finally {
+        setIsLoading(false);
       }
     }
-    fetchCharacterApi();
+    if (selectedId) fetchCharacterApi();
   }, [selectedId]);
 
-  if (!character || !selectedId) {
+  if (loading)
     return (
-      <div className="w-100 flex justify-center items-center font-bold text-white/90 mt-20 text-xl xl:text-2xl">
+      <div className="mt-36 ">
+        <Loading />
+      </div>
+    );
+
+  if (!character || !selectedId)
+    return (
+      <div className="w-100 flex justify-center items-center font-bold text-white/90 mt-36 text-xl xl:text-2xl">
         Please select a character
       </div>
     );
-  }
 
   return (
     <>
