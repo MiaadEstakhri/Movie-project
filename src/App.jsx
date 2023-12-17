@@ -33,8 +33,9 @@ function App() {
   }, [query]);
 
   const handelSelectId = (id) => {
-    setSelectedId(id);
+    setSelectedId((prevId) => (prevId === id ? null : id));
   };
+
   return (
     <main className="w-100 h-screen  flex justify-center ">
       <Toaster />
