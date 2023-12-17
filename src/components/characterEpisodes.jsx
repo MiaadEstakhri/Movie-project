@@ -1,7 +1,6 @@
 import ArrowUpCircleIcon from "../assets/icons/arrowUpCircleIcon";
-import { episodes } from "../data/data";
 
-function CharacterEpisodes() {
+function CharacterEpisodes({ episodes }) {
   return (
     <div className="w-100  bg-slate-800 rounded-xl mt-5 p-3 ">
       <div className="w-100 flex justify-between whitespace-nowrap mb-1">
@@ -22,7 +21,7 @@ function CharacterEpisodes() {
               className="flex justify-between mt-3  text-[.7rem] md:text-xs "
               key={item.id}>
               <div>
-                {String(index + 1).padStart(2, "0")} - {item.episode} :{" "}
+                {String(index + 1).padStart(2, "0")} - {item.episode}
                 <strong>{item.name}</strong>
               </div>
               <div className="bg-slate-500/60 rounded-xl py-1 px-3 text-[.5rem]  md:text-[.7rem]">

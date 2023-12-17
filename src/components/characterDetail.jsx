@@ -6,6 +6,7 @@ import Loading from "./loading";
 
 function CharacterDetail({ selectedId }) {
   const [character, setCharacter] = useState(null);
+  const [episodes, setEpisodes] = useState([]);
   const [loading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -16,6 +17,13 @@ function CharacterDetail({ selectedId }) {
           `https://rickandmortyapi.com/api/character/${selectedId}`
         );
         setCharacter(data);
+
+        const episodesId = data.episode.map((item) => item.split("/").at(-1));
+        const { data: episodesData } = await axios.get(
+          `https://rickandmortyapi.com/api/episode/${episodesId}`
+        );
+        console.log(episodesData);
+        setEpisodes([episodesData].flat().slice(0, 8));
       } catch (error) {
         toast.error(error.response.data.error);
       } finally {
@@ -42,7 +50,7 @@ function CharacterDetail({ selectedId }) {
   return (
     <>
       <div className=" grid grid-flow-col grid-cols-5  bg-slate-800   rounded-xl ">
-        <div className="col-span-2  ">
+        <div className="col-span-2 text-white/90 ">
           <img
             src={character.image}
             alt={character.name}
@@ -81,7 +89,7 @@ function CharacterDetail({ selectedId }) {
           </div>
         </div>
       </div>
-      <CharacterEpisodes />
+      <CharacterEpisodes episodes={episodes} />
     </>
   );
 }
