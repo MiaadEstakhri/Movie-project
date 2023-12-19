@@ -33,7 +33,7 @@ function App() {
     fetchApi();
   }, [query]);
 
-  const handelSelectId = (id) => {
+  const handleSelectId = (id) => {
     setSelectedId((prevId) => (prevId === id ? null : id));
   };
 
@@ -60,7 +60,7 @@ function App() {
             ) : (
               <CharacterList
                 characters={characters}
-                onSelectedId={handelSelectId}
+                onSelectedId={handleSelectId}
                 selectedId={selectedId}
               />
             )}
