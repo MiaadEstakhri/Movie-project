@@ -13,6 +13,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     async function fetchApi() {
@@ -24,7 +25,7 @@ function App() {
         setCharacters(data.results);
       } catch (error) {
         setCharacters([]);
-        toast.error(error.response.data.error);
+        toast.error(error.response.data.error || error.message);
       } finally {
         setIsLoading(false);
       }
@@ -36,6 +37,12 @@ function App() {
     setSelectedId((prevId) => (prevId === id ? null : id));
   };
 
+  const handleAddFavorites = (chr) => {
+    setFavorites((prev) => [...prev, chr]);
+  };
+
+  const isAddFavorites = favorites.map((fav) => fav.id).includes(selectedId);
+
   return (
     <main className="w-100 h-screen  flex justify-center ">
       <Toaster />
@@ -44,6 +51,7 @@ function App() {
           numOfResult={characters.length}
           query={query}
           setQuery={setQuery}
+          numOfFavorites={favorites.length}
         />
         <section className="grid grid-flow-row sm:grid-flow-col  sm:grid-cols-8 mt-6">
           <div className=" sm:col-span-4  2xl:col-span-3 mb-5 sm:mb-0  sm:mt-3 text-center">
@@ -58,7 +66,11 @@ function App() {
             )}
           </div>
           <div className=" sm:col-span-4 2xl:col-span-5 mx-[.125rem] sm:mx-0  sm:my-4 sm:ms-4 mb-5 ">
-            <CharacterDetail selectedId={selectedId} />
+            <CharacterDetail
+              selectedId={selectedId}
+              onAddFavorites={handleAddFavorites}
+              isAddFavorites={isAddFavorites}
+            />
           </div>
         </section>
       </div>
