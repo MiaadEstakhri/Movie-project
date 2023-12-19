@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import CharacterEpisodes from "./characterEpisodes";
 import Loading from "./loading";
 
-function CharacterDetail({ selectedId }) {
+function CharacterDetail({ selectedId, onAddFavorites, isAddFavorites }) {
   const [character, setCharacter] = useState(null);
   const [episodes, setEpisodes] = useState([]);
   const [loading, setIsLoading] = useState(false);
@@ -24,7 +24,7 @@ function CharacterDetail({ selectedId }) {
         );
         setEpisodes([episodesData].flat().slice(0, 8));
       } catch (error) {
-        toast.error(error.response.data.error);
+        toast.error(error.response.data.error || error.message);
       } finally {
         setIsLoading(false);
       }
@@ -82,9 +82,17 @@ function CharacterDetail({ selectedId }) {
             <p className="whitespace-nowrap mt-1 font-semibold">
               {character.location.name}
             </p>
-            <button className="bg-slate-500/95 py-2 px-3 md:py-3 sm:px-4 rounded-2xl mt-3 mb-2 font-extrabold hover:bg-slate-600/80 ">
-              Add to Favorite
-            </button>
+            {isAddFavorites ? (
+              <p className="font-extrabold mt-3 mb-2 text-sm sm:text-lg ">
+                already added to favorites ✅
+              </p>
+            ) : (
+              <button
+                className="bg-slate-500/95 py-2 px-3 md:py-3 sm:px-4 rounded-2xl mt-3 mb-2 font-extrabold hover:bg-slate-600/80 "
+                onClick={() => onAddFavorites(character)}>
+                Add to Favorite
+              </button>
+            )}
           </div>
         </div>
       </div>
