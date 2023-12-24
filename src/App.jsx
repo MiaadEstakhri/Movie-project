@@ -16,21 +16,30 @@ function App() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     async function fetchApi() {
       try {
         setIsLoading(true);
         const { data } = await axios.get(
-          `https://rickandmortyapi.com/api/character/?name=${query}`
+          `https://rickandmortyapi.com/api/character/?name=${query}`,
+          { signal }
         );
         setCharacters(data.results);
       } catch (error) {
-        setCharacters([]);
-        toast.error(error.response.data.error || error.message);
+        if (!axios.isCancel()) {
+          setCharacters([]);
+          toast.error(error.response.data.error);
+        }
       } finally {
         setIsLoading(false);
       }
     }
     fetchApi();
+
+    return () => {
+      controller.abort();
+    };
   }, [query]);
 
   const handleSelectId = (id) => {
