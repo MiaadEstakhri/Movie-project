@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ArrowUpCircleIcon from "../assets/icons/arrowUpCircleIcon";
-import ArrowDownCircleIcon from "../assets/icons/arrowDownCircle";
+import ArrowDownCircleIcon from "../assets/icons/arrowDownCircleIcon";
 
 function CharacterEpisodes({ episodes }) {
   const [sortBy, setSortBy] = useState(true);
