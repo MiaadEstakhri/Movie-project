@@ -1,7 +1,7 @@
 import XCircleIcon from "../assets/icons/xCircleIcon";
 
 function Modal({ header, children, open, onOpen }) {
-  //   if (!open) return null;
+  if (!open) return null;
   return (
     <div className="w-full h-screen absolute flex  justify-center items-center overflow-hidden ">
       <div className="h-full  w-full z-10 bg-slate-600/80 absolute"></div>
