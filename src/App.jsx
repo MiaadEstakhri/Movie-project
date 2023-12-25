@@ -7,6 +7,7 @@ import CharacterDetail from "./components/characterDetail";
 import CharacterEpisodes from "./components/characterEpisodes";
 import Loading from "./components/loading";
 import "./App.css";
+import Modal from "./components/modal";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -53,9 +54,10 @@ function App() {
   const isAddFavorites = favorites.map((fav) => fav.id).includes(selectedId);
 
   return (
-    <main className="w-100 h-screen  flex justify-center ">
+    <main className="w-full h-screen flex justify-center ">
       <Toaster />
-      <div className="h-100 container mx-4 xl:mx-0">
+      <Modal header={"this  is title"} />
+      <div className="h-full container mx-4 xl:mx-0">
         <Navbar
           numOfResult={characters.length}
           query={query}
