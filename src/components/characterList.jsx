@@ -7,7 +7,7 @@ function CharacterList({ characters, onSelectedId, selectedId }) {
       {characters.map((item) => {
         return (
           <div
-            className="grid grid-flow-col grid-cols-5  bg-slate-800 my-4  p-2 sm:p-3 lg:p-4 rounded-xl"
+            className="grid grid-flow-col grid-cols-5  bg-slate-800 my-4  p-2 sm:p-3 lg:p-4 rounded-xl hover:bg-slate-500/10"
             key={item.id}>
             <div className="col-span-1 sm:col-span-2 text-white/90">
               <img
