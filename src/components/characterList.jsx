@@ -3,10 +3,10 @@ import EyeSlashIcon from "../assets/icons/eyeSlashIcon";
 
 function CharacterList({ characters, onSelectedId, selectedId }) {
   return (
-    <div className="max-h-[350px]  sm:max-h-[600px] overflow-y-auto characters ">
+    <div className="w-full max-h-[350px]  sm:max-h-[600px] overflow-y-auto characters ">
       {characters.map((item) => {
         return (
-          <Character item={item} key={item.id}>
+          <Character item={item} key={item.id} classImage="flex items-center">
             <button
               className="col-span-1 self-center justify-self-end cursor-pointer"
               onClick={() => onSelectedId(item.id)}>
@@ -28,26 +28,29 @@ function CharacterList({ characters, onSelectedId, selectedId }) {
 
 export default CharacterList;
 
-export function Character({ item, children }) {
+export function Character({ item, children, className, classImage }) {
   return (
     <div
-      className="grid grid-flow-col grid-cols-5  bg-slate-800 my-4  p-2 sm:p-3 lg:p-4 rounded-xl hover:bg-slate-500/10"
+      className={`w-full grid grid-flow-col grid-cols-5 my-4  p-1  lg:p-2 rounded-xl hover:bg-slate-500/10 ${
+        className ? className : " bg-slate-800 "
+      }`}
       key={item.id}>
-      <div className="col-span-1 sm:col-span-2 text-white/90">
+      <div
+        className={`w-full${
+          classImage ? classImage : "sm:col-span-2  min-h-[90px] "
+        }  xl:col-span-1  text-white/90`}>
         <img
           src={item.image}
           alt={item.name}
-          className=" w-full lg:w-[90%] sm:h-24 lg:h-32 xl:h-36  rounded-xl sm:rounded-2xl "
+          className=" w-full rounded-xl sm:rounded-2xl "
         />
       </div>
       <div className="col-span-3 flex flex-col justify-around items-start  ps-3 lg:ps-0 text-white/90">
         <h3 className=" whitespace-nowrap  font-bold ">
-          <span className="text-lg">
+          <span className="text-md">
             {item.gender === "Male" ? "👱🏻‍♂️" : "👩🏻‍🦰"}
           </span>
-          <span className="text-xs whitespace-pre-wrap lg:text-xl ms-2">
-            {item.name}
-          </span>
+          <span className="text-sm truncate  ms-2">{item.name}</span>
         </h3>
         <div className="text-xs lg:text-sm ">
           <span
