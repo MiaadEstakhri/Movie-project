@@ -1,52 +1,47 @@
 body {
-  background: #111827;
+    background: #111827;
 }
 
 .characters::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
+.modal-body::-webkit-scrollbar {
+    display: none;
+}
 
-.characters {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
+.characters,
+.modal-body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .loader {
-  width: 70px;
-  height: 40px;
-  --g: radial-gradient(
-      farthest-side,
-      #0000 calc(95% - 3px),
-      #fff calc(100% - 3px) 98%,
-      #0000 101%
-    )
-    no-repeat;
-  background: var(--g), var(--g), var(--g);
-  background-size: 20px 20px;
-  animation: l9 1s infinite alternate;
+    width: 70px;
+    height: 40px;
+    --g: radial-gradient( farthest-side, #0000 calc(95% - 3px), #fff calc(100% - 3px) 98%, #0000 101%) no-repeat;
+    background: var(--g), var(--g), var(--g);
+    background-size: 20px 20px;
+    animation: l9 1s infinite alternate;
 }
 
 @keyframes l9 {
-  0% {
-    background-position: 0 50%, 50% 50%, 100% 50%;
-  }
-  20% {
-    background-position: 0 0, 50% 50%, 100% 50%;
-  }
-  40% {
-    background-position: 0 100%, 50% 0, 100% 50%;
-  }
-  60% {
-    background-position: 0 50%, 50% 100%, 100% 0;
-  }
-  80% {
-    background-position: 0 50%, 50% 50%, 100% 100%;
-  }
-  100% {
-    background-position: 0 50%, 50% 50%, 100% 50%;
-  }
+    0% {
+        background-position: 0 50%, 50% 50%, 100% 50%;
+    }
+    20% {
+        background-position: 0 0, 50% 50%, 100% 50%;
+    }
+    40% {
+        background-position: 0 100%, 50% 0, 100% 50%;
+    }
+    60% {
+        background-position: 0 50%, 50% 100%, 100% 0;
+    }
+    80% {
+        background-position: 0 50%, 50% 50%, 100% 100%;
+    }
+    100% {
+        background-position: 0 50%, 50% 50%, 100% 50%;
+    }
 }
