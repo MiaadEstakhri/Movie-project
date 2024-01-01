@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import Navbar from "./components/navbar";
-import CharacterList from "./components/characterList";
+import CharacterList, { Character } from "./components/characterList";
 import CharacterDetail from "./components/characterDetail";
-import CharacterEpisodes from "./components/characterEpisodes";
 import Loading from "./components/loading";
 import "./App.css";
 import Modal from "./components/modal";
+import TrashIcon from "./assets/icons/trashIcon";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -15,6 +15,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const [favorites, setFavorites] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -51,21 +52,47 @@ function App() {
     setFavorites((prev) => [...prev, chr]);
   };
 
+  const handleRemoveFavorite = (id) => {
+    setFavorites(() => favorites.filter((fav) => fav.id !== id));
+  };
+
   const isAddFavorites = favorites.map((fav) => fav.id).includes(selectedId);
 
   return (
     <main className="w-full h-screen flex justify-center ">
       <Toaster />
-      <Modal header={"this  is title"} />
-      <div className="h-full container mx-4 xl:mx-0">
+
+      <Modal header={"This  is title"} onOpen={setIsOpen} open={isOpen}>
+        {favorites.length === 0 ? (
+          <p className=" flex justify-center items-center text-white/90 font-bold mt-10">
+            No character added
+          </p>
+        ) : (
+          favorites.map((item) => (
+            <Character
+              item={item}
+              key={item.id}
+              className="bg-slate-700/100"
+              classImage="col-span-1  ">
+              <button
+                className="col-span-1 self-center justify-self-end cursor-pointer"
+                onClick={() => handleRemoveFavorite(item.id)}>
+                <TrashIcon className="h-7 w-7 sm:h-6 sm:w-6" color="#b91c1c" />
+              </button>
+            </Character>
+          ))
+        )}
+      </Modal>
+      <div className="h-full container mx-2 xl:mx-0">
         <Navbar
           numOfResult={characters.length}
           query={query}
           setQuery={setQuery}
-          numOfFavorites={favorites.length}
+          favorites={favorites}
+          onSelectFavorites={() => setIsOpen((is) => !is)}
         />
-        <section className="grid grid-flow-row sm:grid-flow-col  sm:grid-cols-8 mt-6">
-          <div className=" sm:col-span-4  2xl:col-span-3 mb-5 sm:mb-0  sm:mt-3 text-center">
+        <section className=" w-full sm:grid  sm:grid-flow-col  sm:grid-cols-8 mt-6 ">
+          <div className=" sm:col-span-3   mb-5 sm:mb-0  sm:mt-3 text-center">
             {isLoading ? (
               <Loading />
             ) : (
@@ -76,7 +103,7 @@ function App() {
               />
             )}
           </div>
-          <div className=" sm:col-span-4 2xl:col-span-5 mx-[.125rem] sm:mx-0  sm:my-4 sm:ms-4 mb-5 ">
+          <div className=" sm:col-span-5  mx-[.125rem] sm:mx-0  sm:my-4 sm:ms-4 mb-5 ">
             <CharacterDetail
               selectedId={selectedId}
               onAddFavorites={handleAddFavorites}
