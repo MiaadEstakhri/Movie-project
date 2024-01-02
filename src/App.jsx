@@ -14,7 +14,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(
+    () => JSON.parse(localStorage.getItem("FAVORITES")) || []
+  );
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -43,6 +45,10 @@ function App() {
       controller.abort();
     };
   }, [query]);
+
+  useEffect(() => {
+    localStorage.setItem("FAVORITES", JSON.stringify(favorites));
+  }, [favorites]);
 
   const handleSelectId = (id) => {
     setSelectedId((prevId) => (prevId === id ? null : id));
