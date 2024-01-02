@@ -36,7 +36,7 @@ export function Character({ item, children, className, classImage }) {
       }`}
       key={item.id}>
       <div
-        className={`w-full${
+        className={`w-full flex items-center   ${
           classImage ? classImage : "sm:col-span-2  min-h-[90px] "
         }  xl:col-span-1  text-white/90`}>
         <img
@@ -45,12 +45,12 @@ export function Character({ item, children, className, classImage }) {
           className=" w-full rounded-xl sm:rounded-2xl "
         />
       </div>
-      <div className="col-span-3 flex flex-col justify-around items-start  ps-3 lg:ps-0 text-white/90">
-        <h3 className=" whitespace-nowrap  font-bold ">
+      <div className="col-span-3 flex flex-col justify-around items-start  px-2  text-white/90">
+        <h3 className="  font-bold ">
           <span className="text-md">
             {item.gender === "Male" ? "👱🏻‍♂️" : "👩🏻‍🦰"}
           </span>
-          <span className="text-sm truncate  ms-2">{item.name}</span>
+          <span className="text-sm   ms-2">{item.name}</span>
         </h3>
         <div className="text-xs lg:text-sm ">
           <span
