@@ -8,3 +8,5 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 <img width="1665" alt="rickandmorty-project" src="https://github.com/MiaadEstakhri/Rick-and-Morty-project/assets/94445130/95c50cae-fbec-4557-98cb-a37922d8c9be">
+
+<img width="1680" alt="Screenshot 2024-01-05 at 21 56 46" src="https://github.com/MiaadEstakhri/Rick-and-Morty-project/assets/94445130/025030d1-05e1-4de2-b5db-7b87463cc67c">
