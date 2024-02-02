@@ -8,10 +8,9 @@ import Loading from "./components/loading";
 import "./App.css";
 import Modal from "./components/modal";
 import TrashIcon from "./assets/icons/trashIcon";
+import useCharacters from "./hooks/characters";
 
 function App() {
-  const [characters, setCharacters] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const [favorites, setFavorites] = useState(
@@ -19,32 +18,10 @@ function App() {
   );
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    async function fetchApi() {
-      try {
-        setIsLoading(true);
-        const { data } = await axios.get(
-          `https://rickandmortyapi.com/api/character/?name=${query}`,
-          { signal }
-        );
-        setCharacters(data.results);
-      } catch (error) {
-        if (!axios.isCancel()) {
-          setCharacters([]);
-          toast.error(error.response.data.error);
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchApi();
-
-    return () => {
-      controller.abort();
-    };
-  }, [query]);
+  const { isLoading, characters } = useCharacters(
+    query,
+    `https://rickandmortyapi.com/api/character/?name=${query}`
+  );
 
   useEffect(() => {
     localStorage.setItem("FAVORITES", JSON.stringify(favorites));
