@@ -9,23 +9,17 @@ import "./App.css";
 import Modal from "./components/modal";
 import TrashIcon from "./assets/icons/trashIcon";
 import useCharacters from "./hooks/useCharacters";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
-  const [favorites, setFavorites] = useState(
-    () => JSON.parse(localStorage.getItem("FAVORITES")) || []
-  );
   const [isOpen, setIsOpen] = useState(false);
-
   const { isLoading, characters } = useCharacters(
     query,
     `https://rickandmortyapi.com/api/character/?name=${query}`
   );
-
-  useEffect(() => {
-    localStorage.setItem("FAVORITES", JSON.stringify(favorites));
-  }, [favorites]);
+  const [favorites, setFavorites] = useLocalStorage("FAVORITES", []);
 
   const handleSelectId = (id) => {
     setSelectedId((prevId) => (prevId === id ? null : id));
