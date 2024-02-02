@@ -8,7 +8,7 @@ import Loading from "./components/loading";
 import "./App.css";
 import Modal from "./components/modal";
 import TrashIcon from "./assets/icons/trashIcon";
-import useCharacters from "./hooks/characters";
+import useCharacters from "./hooks/useCharacters";
 
 function App() {
   const [query, setQuery] = useState("");
